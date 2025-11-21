@@ -910,7 +910,7 @@ body {
 
 @media (max-width: 576px) {
     .hero-title {
-        font-size: 36px;
+        font-size: 34px;
     }
     
     .hero-subtitle {
@@ -977,7 +977,7 @@ body {
 
 /* Stat Item */
 .stat-item {
-    padding: 17px 0;
+    padding: 13px 0;
 }
 
 /* Stat Number */
@@ -990,9 +990,6 @@ body {
     line-height: 1;
 }
 
-.stat-number .counter {
-    display: inline-block;
-}
 
 .stat-suffix {
     font-size: 30px;
@@ -1010,14 +1007,14 @@ body {
 /* Responsive Design */
 @media (max-width: 992px) {
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: repeat(2, 1fr); */
         gap: 40px 30px;
     }
 }
 
 @media (max-width: 768px) {
     .stats-section {
-        padding: 50px 0;
+        padding: 25px 0;
     }
     
     .stats-container {
@@ -1033,7 +1030,7 @@ body {
     }
     
     .stat-suffix {
-        font-size: 40px;
+        font-size: 30px;
     }
     
     .stat-label {
@@ -1043,7 +1040,6 @@ body {
 
 @media (max-width: 576px) {
     .stats-grid {
-        grid-template-columns: 1fr;
         gap: 30px;
     }
     
@@ -1052,11 +1048,15 @@ body {
     }
     
     .stat-suffix {
-        font-size: 36px;
+        font-size: 25px;
     }
     
     .stat-label {
         font-size: 14px;
+    }
+
+    .stat-item {
+        padding: 0px 0;
     }
 }
 
@@ -1235,7 +1235,7 @@ body {
     font-size: 72px;
     line-height: 1.1;
     letter-spacing: -0.02em;
-font-size: 48px;
+font-size: 50px;
 }
     
     .hero-subtitle {
@@ -1331,8 +1331,8 @@ font-size: 48px;
     font-size: 72px;
     line-height: 1.1;
     letter-spacing: -0.02em;
-font-size: 36px;
-        margin-bottom: 24px;
+    font-size: 34px;
+    margin-bottom: 24px;
 }
     
     .hero-subtitle {
@@ -1890,7 +1890,7 @@ body {
     }
     
     .stat-number {
-        font-size: 32px;
+        font-size: 25px;
     }
 }
 
@@ -2157,11 +2157,11 @@ body {
     }
     
     .stat-number {
-        font-size: 36px;
+        font-size: 25px;
     }
     
     .stat-label {
-        font-size: 13px;
+        font-size: 7px;
     }
 }
 
