@@ -55,7 +55,7 @@
     
 // ==================== Animated Counters ====================
 function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number, [data-count]');
+    const counters = document.querySelectorAll(' [data-count]');
     
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-count') || counter.textContent.replace(/[^0-9]/g, ''));
@@ -333,33 +333,7 @@ window.addEventListener('scroll', () => {
         });
     }
     
-    // Back to top button
-    function initBackToTop() {
-        const btn = document.createElement('button');
-        btn.className = 'back-to-top';
-        btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        btn.setAttribute('aria-label', 'Back to top');
-        document.body.appendChild(btn);
-        
-        function toggleButton() {
-            if (window.scrollY > 400) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
-            }
-        }
-        
-        window.addEventListener('scroll', toggleButton);
-        
-        btn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-    
-    
+ 
     // Active link highlighting
     function initActiveLinks() {
         const sections = document.querySelectorAll('section[id]');
@@ -395,113 +369,162 @@ window.addEventListener('scroll', () => {
 })();
 
 // <!-- ==================== START Hero JavaScript ==================== -->
-      
-    
-    // Register ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Parallax effect on hero image
-    gsap.to('.hero-visual', {
-        yPercent: 20,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-    
-    // Parallax on particles
-    gsap.to('.particle:nth-child(1)', {
-        y: 100,
-        x: -50,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-    
-    gsap.to('.particle:nth-child(2)', {
-        y: -80,
-        x: 60,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-    
-    gsap.to('.particle:nth-child(3)', {
-        y: 120,
-        x: 40,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-    
-    gsap.to('.particle:nth-child(4)', {
-        y: -100,
-        x: -70,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        }
-    });
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    
-    // Magnetic button effect
-    const buttons = document.querySelectorAll('.btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('mousemove', (e) => {
-            const rect = button.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            gsap.to(button, {
-                x: x * 0.2,
-                y: y * 0.2,
-                duration: 0.3,
-                ease: 'power2.out'
+
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Parallax effect on hero image
+gsap.to('.hero-visual', {
+    yPercent: 10,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+    }
+});
+
+// Parallax on particles
+gsap.to('.particle:nth-child(1)', {
+    y: 100,
+    x: -50,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+    }
+});
+
+gsap.to('.particle:nth-child(2)', {
+    y: -80,
+    x: 60,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+    }
+});
+
+gsap.to('.particle:nth-child(3)', {
+    y: 120,
+    x: 40,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+    }
+});
+
+gsap.to('.particle:nth-child(4)', {
+    y: -100,
+    x: -70,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+    }
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
+        }
+    });
+});
+
+// Magnetic button effect
+const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
         
-        button.addEventListener('mouseleave', () => {
-            gsap.to(button, {
-                x: 0,
-                y: 0,
-                duration: 0.5,
-                ease: 'elastic.out(1, 0.5)'
-            });
+        gsap.to(button, {
+            x: x * 0.2,
+            y: y * 0.2,
+            duration: 0.3,
+            ease: 'power2.out'
         });
     });
     
+    button.addEventListener('mouseleave', () => {
+        gsap.to(button, {
+            x: 0,
+            y: 0,
+            duration: 0.5,
+            ease: 'elastic.out(1, 0.5)'
+        });
+    });
+});
+
+// <!-- ==================== START Stats Section Uder hero ==================== -->
+
+// Counter animation function
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const increment = target / (duration / 16); // 60fps
+    let current = 0;
+    
+    const updateCounter = () => {
+        current += increment;
+        
+        if (current < target) {
+            element.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    };
+    
+    updateCounter();
+}
+
+// Intersection Observer for triggering animation when in view
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                if (!counter.classList.contains('animated')) {
+                    counter.classList.add('animated');
+                    animateCounter(counter);
+                }
+            });
+        }
+    });
+}, observerOptions);
+
+// Observe the stats section
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    observer.observe(statsSection);
+}
+
+
 // ================= Services Section JavaScript =================
 
 (function() {
@@ -847,30 +870,7 @@ lottieContainer.appendChild(player);
         initSmoothScroll();
     });
     
-    // Back to top button
-    function initBackToTop() {
-        const backToTopBtn = document.getElementById('backToTop');
-        
-        if (!backToTopBtn) return;
-        
-        // Show/hide button on scroll
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-        
-        // Scroll to top on click
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-    
+   
     // Smooth scroll for anchor links
     function initSmoothScroll() {
         const links = document.querySelectorAll('a[href^="#"]');
