@@ -1025,7 +1025,7 @@ body {
     }
     
     .stat-number {
-        font-size: 40px;
+        font-size: 27px;
     }
     
     .stat-suffix {
@@ -1033,7 +1033,7 @@ body {
     }
     
     .stat-label {
-        font-size: 15px;
+        font-size: 11px;
     }
 }
 
@@ -1051,7 +1051,7 @@ body {
     }
     
     .stat-label {
-        font-size: 14px;
+        font-size: 7px;
     }
 
     .stat-item {
@@ -2213,7 +2213,7 @@ body {
     }
     
     .stat-number {
-        font-size: 25px;
+        font-size: 20px;
     }
 }
 
@@ -2967,7 +2967,7 @@ body {
 /* Contact Form */
 .contact-form-wrapper {
     background: var(--white);
-    padding: 50px;
+    padding:29px 50px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border);
