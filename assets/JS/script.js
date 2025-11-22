@@ -1187,3 +1187,53 @@ lottieContainer.appendChild(player);
     }
     
 })();
+
+
+// -==================Scroll to Top Button ==================
+(function() {
+    'use strict';
+    
+    // Get the button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    if (!scrollToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    function toggleScrollButton() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    }
+    
+    // Smooth scroll to top
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', toggleScrollButton);
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Initial check
+    toggleScrollButton();
+    
+    // Optional: Update progress ring (if using progress-style)
+    function updateScrollProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        scrollToTopBtn.style.setProperty('--scroll-progress', scrollPercent + '%');
+    }
+    
+    // Uncomment if using progress-style
+    // window.addEventListener('scroll', updateScrollProgress);
+    
+})();
