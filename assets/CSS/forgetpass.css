@@ -434,9 +434,6 @@ body {
 
 /* Mobile */
 @media (max-width: 576px) {
-    body {
-        padding: 20px 16px;
-    }
     
     .forgot-password-section {
         max-width: 100%;
