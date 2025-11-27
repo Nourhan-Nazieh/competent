@@ -1,107 +1,115 @@
-    // Form submission
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+     // Form elements
+     const form = document.getElementById('demoBookingForm');
+     const successMessage = document.getElementById('successMessage');
+     const errorMessage = document.getElementById('errorMessage');
+     const submitBtn = document.getElementById('submitBtn');
+     const spinner = document.getElementById('spinner');
+     const submitText = document.getElementById('submitText');
 
-        // Reset messages
-        successMessage.classList.remove('show');
-        errorMessage.classList.remove('show');
+     // Form submission
+     form.addEventListener('submit', async function(e) {
+         e.preventDefault();
 
-        // Validate interests
-        const interests = document.querySelectorAll('input[name="interests"]:checked');
-        if (interests.length === 0) {
-            document.getElementById('interestsFeedback').textContent = 'Please select at least one area of interest';
-            document.getElementById('interestsFeedback').style.display = 'block';
-            return;
-        }
+         // Reset messages
+         successMessage.classList.remove('show');
+         errorMessage.classList.remove('show');
 
-        // Add Bootstrap validation class
-        form.classList.add('was-validated');
+         // Validate interests
+         const interests = document.querySelectorAll('input[name="interests"]:checked');
+         if (interests.length === 0) {
+             document.getElementById('interestsFeedback').textContent = 'Please select at least one area of interest';
+             document.getElementById('interestsFeedback').style.display = 'block';
+             return;
+         }
 
-        // If form is invalid, stop
-        if (!form.checkValidity()) {
-            return;
-        }
+         // Add Bootstrap validation class
+         form.classList.add('was-validated');
 
-        // Show loading state
-        submitBtn.disabled = true;
-        spinner.classList.add('show');
-        submitText.textContent = 'Booking...';
+         // If form is invalid, stop
+         if (!form.checkValidity()) {
+             return;
+         }
 
-        try {
-            // Collect form data
-            const formData = new FormData(form);
-            const selectedInterests = Array.from(interests).map(cb => cb.value);
-            
-            const data = {
-                fullName: formData.get('fullName'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                companyName: formData.get('companyName'),
-                industry: formData.get('industry'),
-                companySize: formData.get('companySize'),
-                position: formData.get('position'),
-                preferredDate: formData.get('preferredDate'),
-                preferredTime: formData.get('preferredTime'),
-                interests: selectedInterests,
-                message: formData.get('message')
-            };
+         // Show loading state
+         submitBtn.disabled = true;
+         spinner.classList.add('show');
+         submitText.textContent = 'Booking...';
 
-            // Log form data for demonstration
-            console.log('Demo Booking Data:', data);
+         try {
+             // Collect form data
+             const formData = new FormData(form);
+             const selectedInterests = Array.from(interests).map(cb => cb.value);
+             
+             const data = {
+                 fullName: formData.get('fullName'),
+                 email: formData.get('email'),
+                 phone: formData.get('phone'),
+                 companyName: formData.get('companyName'),
+                 industry: formData.get('industry'),
+                 companySize: formData.get('companySize'),
+                 position: formData.get('position'),
+                 preferredDate: formData.get('preferredDate'),
+                 preferredTime: formData.get('preferredTime'),
+                 interests: selectedInterests,
+                 message: formData.get('message')
+             };
 
-            // Simulate API delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
+             // Log form data for demonstration
+             console.log('Demo Booking Data:', data);
 
-            // Success response
-            successMessage.classList.add('show');
-            form.reset();
-            form.classList.remove('was-validated');
-            
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+             // Simulate API delay
+             await new Promise(resolve => setTimeout(resolve, 1500));
 
-        } catch (error) {
-            errorMessage.textContent = 'An error occurred while booking your demo. Please try again.';
-            errorMessage.classList.add('show');
-            console.error('Error:', error);
-        } finally {
-            // Reset button state
-            submitBtn.disabled = false;
-            spinner.classList.remove('show');
-            submitText.textContent = 'Book Your Demo';
-        }
-    });
+             // Success response
+             successMessage.classList.add('show');
+             form.reset();
+             form.classList.remove('was-validated');
+             
+             // Scroll to success message
+             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Add custom validation messages
-    const inputs = form.querySelectorAll('.form-control, .form-select');
-    inputs.forEach(input => {
-        input.addEventListener('invalid', function(e) {
-            e.preventDefault();
-            
-            let message = '';
-            if (this.type === 'email' && !this.validity.valid) {
-                message = 'Please enter a valid email address';
-            } else if (this.validity.valueMissing) {
-                message = 'This field is required';
-            } else if (this.validity.typeMismatch) {
-                message = `Please enter a valid ${this.type}`;
-            } else {
-                message = this.validationMessage;
-            }
+         } catch (error) {
+             errorMessage.textContent = 'An error occurred while booking your demo. Please try again.';
+             errorMessage.classList.add('show');
+             console.error('Error:', error);
+         } finally {
+             // Reset button state
+             submitBtn.disabled = false;
+             spinner.classList.remove('show');
+             submitText.textContent = 'Book Your Demo';
+         }
+     });
 
-            const feedback = this.nextElementSibling;
-            if (feedback && feedback.classList.contains('invalid-feedback')) {
-                feedback.textContent = message;
-            }
-        });
-    });
+     // Add custom validation messages
+     const inputs = form.querySelectorAll('.form-control, .form-select');
+     inputs.forEach(input => {
+         input.addEventListener('invalid', function(e) {
+             e.preventDefault();
+             
+             let message = '';
+             if (this.type === 'email' && !this.validity.valid) {
+                 message = 'Please enter a valid email address';
+             } else if (this.validity.valueMissing) {
+                 message = 'This field is required';
+             } else if (this.validity.typeMismatch) {
+                 message = `Please enter a valid ${this.type}`;
+             } else {
+                 message = this.validationMessage;
+             }
 
-    // Clear interests feedback when checkbox is clicked
-    document.querySelectorAll('input[name="interests"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const interests = document.querySelectorAll('input[name="interests"]:checked');
-            if (interests.length > 0) {
-                document.getElementById('interestsFeedback').style.display = 'none';
-            }
-        });
-    });
+             const feedback = this.nextElementSibling;
+             if (feedback && feedback.classList.contains('invalid-feedback')) {
+                 feedback.textContent = message;
+             }
+         });
+     });
+
+     // Clear interests feedback when checkbox is clicked
+     document.querySelectorAll('input[name="interests"]').forEach(checkbox => {
+         checkbox.addEventListener('change', function() {
+             const interests = document.querySelectorAll('input[name="interests"]:checked');
+             if (interests.length > 0) {
+                 document.getElementById('interestsFeedback').style.display = 'none';
+             }
+         });
+     });

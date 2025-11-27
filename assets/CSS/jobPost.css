@@ -69,7 +69,6 @@ body {
 /* Section Headers */
 .section-header {
     text-align: center;
-    margin-bottom: 3rem;
 }
 
 .section-label {
@@ -188,6 +187,9 @@ body {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
+.section-header{
+    margin-bottom: 25px;
 }
 
 .file-input-wrapper {
