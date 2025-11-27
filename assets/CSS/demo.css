@@ -115,7 +115,7 @@ body {
 }
 
 .form-section-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
@@ -338,7 +338,7 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .consultancy-hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .section-title {
@@ -364,6 +364,15 @@ body {
     
     .info-box p {
         margin: 0;
-        font-size: .5rem;
+        font-size: .4rem;
+    }
+
+    .form-section-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--accent-color);
     }
 }
