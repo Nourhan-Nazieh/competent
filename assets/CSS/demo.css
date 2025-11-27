@@ -58,8 +58,8 @@ body {
 }
 
 .consultancy-hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: .7rem;
+    margin-bottom: 1rem;
     position: relative;
     z-index: 1;
 }
@@ -338,11 +338,11 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .consultancy-hero h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1rem;
     }
 
     .form-container {
@@ -355,5 +355,15 @@ body {
 
     .button-group .btn-reset {
         margin-left: 0;
+    }
+
+    .info-box h4 {
+        margin-bottom: 0.3rem;
+        font-size: calc(1.2rem + .3vw);
+    }
+    
+    .info-box p {
+        margin: 0;
+        font-size: .5rem;
     }
 }
