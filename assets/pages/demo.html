@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,8 @@
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"type="module"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/forgetpass.css">
+    <link rel="stylesheet" href="../CSS/demo.css">
+
 </head>
 <body>
     <!-- ==================== START Header ==================== -->
@@ -146,95 +147,236 @@
             </div>
         </div>
     </header>
-        <!-- ==================== Forgot Password Section ==================== -->
-        <section class="forgot-password-section">
-        
-            <!-- Decorative Circles -->
-            <div class="circle-decoration circle-1"></div>
-            <div class="circle-decoration circle-2"></div>
-            
-            <div class="forgot-password-container">
-                
-                <!-- Left Side - Form -->
-                <div class="forgot-password-form-side">
-                    
-                    <div class="form-header">
-                        <div class="form-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <h2 class="form-title">Forgot Password?</h2>
-                        <p class="form-subtitle">No worries! Enter your email address and we'll send you a link to reset your password.</p>
-                    </div>
-                    
-                    <!-- Success Message -->
-                    <div class="success-message" id="successMessage">
-                        <i class="fas fa-check-circle"></i>
-                        <p>Password reset link has been sent to your email. Please check your inbox.</p>
-                    </div>
-                    
-                    <form class="forgot-password-form" id="forgotPasswordForm">
-                        
-                        <!-- Email Field -->
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-envelope input-icon"></i>
-                                <input 
-                                    type="email" 
-                                    id="email" 
-                                    class="form-input" 
-                                    placeholder="Enter your email address"
-                                    required
-                                >
-                            </div>
-                            <div class="error-message" id="emailError">
-                                <i class="fas fa-exclamation-circle"></i>
-                                <span>Please enter a valid email address</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" class="submit-btn" id="submitBtn">
-                            <span class="btn-text">Send Reset Link</span>
-                            <i class="fas fa-paper-plane"></i>
-                            <div class="spinner"></div>
-                        </button>
-                        
-                    </form>
-                    
-                    <!-- Back to Login -->
-                    <div class="back-to-login">
-                        <p>
-                            <i class="fas fa-arrow-left"></i>
-                            Remember your password? 
-                            <a href="login.html" class="back-link">Back to Login</a>
-                        </p>
-                    </div>
-                    
-                </div>
-                
-                <!-- Right Side - Animation -->
-                <div class="forgot-password-animation-side">
-                    
-                    <!-- Decorations -->
-                    <div class="animation-decoration decoration-1"></div>
-                    <div class="animation-decoration decoration-2"></div>
-                    
-                    <!-- Lottie Animation -->
-                    <dotlottie-wc
-                    src="https://lottie.host/7755e13e-2af3-4096-91ba-ce52fd6b9973/cxwdqwimHg.lottie"
-                    style="width: 500px;height: 500px"
-                    autoplay
-                    loop
-                  ></dotlottie-wc>
-                    </div>
-                    
-                </div>
-                
-            </div>
-            
-        </section>
 
+    <!-- Hero Section -->
+    <section class="consultancy-hero">
+        <div class="container">
+            <h1 class="hero-title jobHero" style="display: flex; justify-content: center; gap:10px;">
+                <div class="hero-title-line1">HR Consultancy</div>
+                <div class="hero-title-line2">Services</div>
+            </h1> 
+            <p>Build efficient HR systems tailored to your unique business needs</p>
+        </div>
+
+
+    </section>
+
+
+    <!-- Demo Booking Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">SCHEDULE YOUR DEMO</div>
+                <h2 class="section-title">Book a Consultation</h2>
+                <p class="section-subtitle">Let our HR experts understand your business needs and show you how we can help</p>
+            </div>
+
+            <div class="form-container">
+                <!-- Info Box -->
+                <div class="info-box">
+                    <h4>Free Consultation Demo</h4>
+                    <p class="info-highlight">Duration: <strong>30-45 minutes</strong></p>
+                    <p>One-on-one session with our HR consultancy experts</p>
+                </div>
+
+                <!-- Messages -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Your demo booking request has been submitted successfully! Our team will contact you within 24 hours to confirm the appointment.
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Form -->
+                <form id="demoBookingForm" novalidate>
+                    <!-- Section 1: Personal Information -->
+                    <div class="form-section-title">
+                        <i class="fas fa-user"></i> Your Information
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" 
+                               placeholder="Enter your full name" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                Email Address <span class="required">*</span>
+                            </label>
+                            <input type="email" class="form-control" id="email" name="email" 
+                                   placeholder="your.email@company.com" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">
+                                Phone Number <span class="required">*</span>
+                            </label>
+                            <input type="tel" class="form-control" id="phone" name="phone" 
+                                   placeholder="+20" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Company Information -->
+                    <div class="form-section-title" style="margin-top: 2rem;">
+                        <i class="fas fa-building"></i> Company Information
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="companyName">
+                            Company Name <span class="required">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="companyName" name="companyName" 
+                               placeholder="Enter your company name" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="industry">
+                                Industry <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="industry" name="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Education">Education</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Consulting">Consulting</option>
+                                <option value="Media">Media & Entertainment</option>
+                                <option value="Hospitality">Hospitality</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="companySize">
+                                Company Size <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="companySize" name="companySize" required>
+                                <option value="">Select company size</option>
+                                <option value="1-50">1-50 employees</option>
+                                <option value="51-200">51-200 employees</option>
+                                <option value="201-500">201-500 employees</option>
+                                <option value="501-1000">501-1000 employees</option>
+                                <option value="1000+">1000+ employees</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="position">
+                            Your Position <span class="required">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="position" name="position" 
+                               placeholder="e.g., HR Manager, CEO, Business Owner" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- Section 3: Consultation Details -->
+                    <div class="form-section-title" style="margin-top: 2rem;">
+                        <i class="fas fa-calendar-alt"></i> Consultation Details
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="preferredDate">
+                                Preferred Date <span class="required">*</span>
+                            </label>
+                            <input type="date" class="form-control" id="preferredDate" name="preferredDate" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="preferredTime">
+                                Preferred Time <span class="required">*</span>
+                            </label>
+                            <select class="form-select" id="preferredTime" name="preferredTime" required>
+                                <option value="">Select time slot</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="17:00">05:00 PM</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="interests">
+                            Areas of Interest <span class="required">*</span>
+                        </label>
+                        <div style="padding: 1rem; background: #fff; border: 1px solid var(--border-color); border-radius: 8px;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="interest1" name="interests" value="Organizational Structure">
+                                <label class="form-check-label" for="interest1">
+                                    Organizational Structure Design
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="interest2" name="interests" value="HR Policies">
+                                <label class="form-check-label" for="interest2">
+                                    HR Policy Development
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="interest3" name="interests" value="Performance Management">
+                                <label class="form-check-label" for="interest3">
+                                    Performance Management Systems
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="interest4" name="interests" value="Salary Structures">
+                                <label class="form-check-label" for="interest4">
+                                    Salary Structures & Job Grading
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="interest5" name="interests" value="All Services">
+                                <label class="form-check-label" for="interest5">
+                                    All Services
+                                </label>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback" id="interestsFeedback"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">
+                            Additional Message (Optional)
+                        </label>
+                        <textarea class="form-control" id="message" name="message" 
+                                  rows="4" placeholder="Tell us about your HR challenges or specific needs..."></textarea>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="button-group">
+                        <button type="reset" class="btn-reset">Clear Form</button>
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="spinner" id="spinner"></span>
+                            <span id="submitText">Book Your Demo</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+ 
       <!-- ==================== START Footer ==================== -->
       <footer class="footer" id="footer">
         <div class="footer-container">
@@ -401,8 +543,9 @@
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>    
        <!-- ==================== custom js ==================== -->
        <script src="../JS/script.js"></script>
-       <script src="../JS/forgetPass.js"></script>
+       <script src="../JS/demo.js"></script>
 
 
 </body>
 </html>
+
